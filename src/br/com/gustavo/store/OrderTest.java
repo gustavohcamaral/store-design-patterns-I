@@ -1,7 +1,8 @@
 package br.com.gustavo.store;
 
 import br.com.gustavo.store.order.GenerateOrder;
-import br.com.gustavo.store.order.GenerateOrderHandler;
+import br.com.gustavo.store.order.OrderLog;
+import br.com.gustavo.store.order.action.GenerateOrderHandler;
 import br.com.gustavo.store.order.action.SendOrderEmail;
 import br.com.gustavo.store.order.action.StoreOrderInDataBaseAction;
 
@@ -19,9 +20,10 @@ public class OrderTest {
         //disparando os observers
         GenerateOrderHandler handler = new GenerateOrderHandler(
                 Arrays.asList(new StoreOrderInDataBaseAction(),
-                        new SendOrderEmail()));
+                        new SendOrderEmail(),
+                        new OrderLog()));
+        //FACADE
         handler.execute(generator);
-
     }
 
 }

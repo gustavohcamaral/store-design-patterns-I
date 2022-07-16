@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 //COMMAND
+//this class represents tha order data
 public class GenerateOrder {
 
     private String client;

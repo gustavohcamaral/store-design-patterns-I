@@ -5,8 +5,11 @@ import br.com.gustavo.store.quote.Quote;
 
 import java.math.BigDecimal;
 
-public class ISS implements Tax{
-    public BigDecimal calculate(Quote quote){
+public class ISS extends Tax{
+    public ISS(Tax otherTax) {
+        super(otherTax);
+    }
+    public BigDecimal performCalculation(Quote quote){
         return quote.getValue().multiply(new BigDecimal("0.06"));
     }
 }
